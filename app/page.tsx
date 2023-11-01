@@ -23,14 +23,14 @@ export default function Home() {
         formData.append("file", selectedFile);
 
         // Upload the file to the server
-        const response = await axios.post("/api/upload", formData, {
+        const response = await axios.post("/api/upload.js", formData, {
           headers: {
             "Content-Type": "multipart/form-data", // Important for file upload
           },
         });
 
         // Assuming Vertex AI processing and response handling here
-        const vertexResponse = await axios.post("/api/vertex-ai", {
+        const vertexResponse = await axios.post("/api/vertex.js", {
           uploadedFileUrl: response.data.fileUrl, // Provide the URL of the uploaded file
         });
 
